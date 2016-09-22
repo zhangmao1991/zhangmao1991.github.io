@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>外边距、内边距</title>
+        <!--内联样式，样式表-->
+        <style>
+            body{
+                /*body:默认有8px的外边距*/
+                /*margin = margin-top + margin-right 
+                margin-bottom + margin-left*/
+
+                /*消除body的外边距*/
+                margin: 0;
+            }
+            /*通过一个标签的id，也可以给这个标签设置样式，形如：#id{}*/
+            /*意思：给标签id = first的设置样式*/
+            #first{
+                width: 300px;
+                height: 400px;
+                background-color: #345;
+                /*左边和下边外边距*/
+                margin-left: 100px;
+                margin-bottom: 20px;
+            }
+            #second{
+                width: 400px;
+                height: 400px;
+                background-color: orange;
+                /*内边距：padding*/
+                /*padding: 20px; 上右下左*/
+                /*padding: 10px 20px; 上下 左右*/
+                /*padding: 10px 20px 30px; 上 左右 下*/
+                /*上 右 下 左*/
+                padding: 10px 20px 30px 40px;
+            }
+            #third{
+                height: 700px;
+                background-color: red;
+                /*格式化上下文*/
+                overflow: hidden;
+            }
+            /*意思：找一个标签id = third的所有子标签中是img的子标签*/
+            /*#third img{
+                
+            }*/
+            #third div{
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+                /*上下50px 左右居中*/
+                margin: 50px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <!--div：块元素-->
+        <!--id：identifier 标识符(唯一的)-->
+        <div id="first"></div>
+        <div id="second"></div>
+        <div id="third">
+            <!--img：行内块-->
+            <!--<img src="1.jpg" alt="图片" title="小偷在失主家睡着了">-->
+            <div></div>
+        </div>
+    </body>
+</html>
