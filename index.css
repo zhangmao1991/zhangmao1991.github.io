@@ -1,0 +1,89 @@
+
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+body{
+	/*背景：渐变色*/
+	background: radial-gradient(circle,#00f,#0f0,#f00);
+	
+	/*弹性布局 居中*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	perspective:1500px;
+	perspective-origin: 80% 50%;
+}
+main{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	/*让子标签处于3D位置*/
+	transform-style: preserve-3d;
+	/*添加关键帧动画*/
+	animation: rotation 10s infinite;
+}
+@keyframes rotation{
+	from{
+		transform: rotateX(0) rotateY(0);
+	}
+	to{
+		transform: rotateX(360deg) rotateY(360deg);
+	}
+}
+
+div{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0.7;
+	border: 2px dashed black;
+	box-sizing: border-box;
+	background-size: 100% 100%;
+}
+/*
+ * 默认情况(因为你要做了rotate的翻转，那么坐标系也相应的就改变了)
+ * 水平向右      X正方向
+ * 向下          Y正方向
+ * 垂直屏幕向外   Z正方向
+ * 
+ * 小规律
+ * 沿着Y轴旋转 正值 向右  负值向左
+ * 沿着X轴旋转 正值 向上  负值向下
+ */
+.forward{
+	background-color: yellow;
+	background-image: url(img/1.png);
+	transform: translateZ(100px);
+}
+.backward{
+	background-color: green;
+	background-image: url(img/2.png);
+	transform: translateZ(-100px);
+}
+.left{
+	background-color: blue;
+	background-image: url(img/3.png);
+	/*先平移平旋转*/
+	/*transform: translateX(-100px) rotateY(-90deg);*/
+	/*先旋转再平移*/
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.right{
+	background-color: cyan;
+	background-image: url(img/4.png);
+	transform: rotateY(90deg) translateZ(100px);
+}
+.top{
+	background-color: white;
+	background-image: url(img/5.png);
+	transform: rotateX(90deg) translateZ(100px);
+}
+.bottom{
+	background-color: black;
+	background-image: url(img/6.png);
+	transform: rotateX(-90deg) translateZ(100px);
+}
+
